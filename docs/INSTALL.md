@@ -1,14 +1,21 @@
-# Installing tokenrotate
+# Installing tokenrotate — many ways, every platform
 
-`tokenrotate` runs anywhere Python 3.10+ runs. Pick your OS:
+`tokenrotate` is Python 3.10+ and **standard-library only**, so it runs anywhere. Pick whatever fits your stack:
 
-| OS | One-liner |
+| Method | Command |
 |---|---|
-| **Linux** | `bash scripts/setup-linux.sh` (apt/dnf/pacman/apk/zypper auto-detected) |
-| **macOS** | `bash scripts/setup-macos.sh` (Homebrew) |
-| **Windows** | `powershell -f scripts/setup-windows.ps1` (winget) |
-| **Any (pip)** | `pip install cognis-tokenrotate` |
+| **pip** (from source — works today) | `pip install "git+https://github.com/cognis-digital/tokenrotate.git"` |
+| **pipx** (isolated CLI) | `pipx install "git+https://github.com/cognis-digital/tokenrotate.git"` |
+| **uv** (fast) | `uv tool install "git+https://github.com/cognis-digital/tokenrotate.git"` |
+| **pip / PyPI** (when published) | `pip install cognis-tokenrotate` |
+| **Homebrew** (tap) | `brew install cognis-digital/tap/tokenrotate` |
 | **Docker** | `docker run --rm ghcr.io/cognis-digital/tokenrotate:latest --help` |
-| **Devcontainer** | open in VS Code → "Reopen in Container" |
+| **curl \| sh** (one-liner) | `curl -fsSL https://raw.githubusercontent.com/cognis-digital/tokenrotate/main/install.sh \| sh` |
+| **from clone** | `git clone https://github.com/cognis-digital/tokenrotate && cd tokenrotate && pip install -e ".[dev]"` |
+| **Dev Container** | open in VS Code → *Reopen in Container* |
+| **Linux / macOS / Windows** | `scripts/setup-linux.sh` · `scripts/setup-macos.sh` · `scripts/setup-windows.ps1` |
+| **Cloud (AWS/Azure/GCP/k8s)** | see [`docs/DEPLOY.md`](docs/DEPLOY.md) |
 
-All ports of the tool (Python/JS/Go/Rust) live in `ports/`.
+Other language ports (JS / Go / Rust) live in [`ports/`](ports/).
+
+> PyPI/Homebrew names are reserved for release; the `git+https` forms work right now.

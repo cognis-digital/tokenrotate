@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: tokenrotate, labels: { app: tokenrotate } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: tokenrotate } }
+  template:
+    metadata: { labels: { app: tokenrotate } }
+    spec:
+      containers:
+        - name: tokenrotate
+          image: ghcr.io/cognis-digital/tokenrotate:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: tokenrotate }
+spec:
+  selector: { app: tokenrotate }
+  ports: [{ port: 80, targetPort: 8000 }]

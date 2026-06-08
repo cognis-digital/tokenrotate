@@ -1,0 +1,56 @@
+{
+  "provider_intervals": {
+    "stripe": 365,
+    "github": 180
+  },
+  "secrets": [
+    {
+      "name": "prod-aws-deploy-key",
+      "provider": "aws",
+      "last_rotated": "2025-12-01",
+      "severity": "critical",
+      "owner": "platform-team",
+      "environment": "prod",
+      "notes": "IAM access key used by CI deploy role"
+    },
+    {
+      "name": "github-actions-pat",
+      "provider": "github",
+      "last_rotated": "2025-08-15",
+      "severity": "high",
+      "owner": "devex",
+      "environment": "ci"
+    },
+    {
+      "name": "stripe-live-restricted",
+      "provider": "stripe",
+      "last_rotated": "2026-04-20",
+      "severity": "critical",
+      "owner": "payments",
+      "environment": "prod"
+    },
+    {
+      "name": "datadog-app-key",
+      "provider": "datadog",
+      "last_rotated": "2026-05-30",
+      "severity": "medium",
+      "owner": "sre"
+    },
+    {
+      "name": "legacy-db-readonly",
+      "provider": "database",
+      "rotation_days": 30,
+      "last_rotated": "2026-05-31",
+      "severity": "high",
+      "environment": "prod",
+      "notes": "short interval override demonstrates due_soon"
+    },
+    {
+      "name": "smtp-relay-password",
+      "provider": "generic",
+      "severity": "low",
+      "owner": "comms",
+      "notes": "no last_rotated on record -> unknown / never rotated"
+    }
+  ]
+}

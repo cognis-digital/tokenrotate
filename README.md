@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-tokenrotate
+pip install "git+https://github.com/cognis-digital/tokenrotate.git"
 tokenrotate scan .            # → prioritized findings in seconds
 ```
 
@@ -48,7 +48,7 @@ rotation made boring
 ## Quick start
 
 ```bash
-pip install cognis-tokenrotate
+pip install "git+https://github.com/cognis-digital/tokenrotate.git"
 tokenrotate --version
 tokenrotate scan .                       # scan current project
 tokenrotate scan . --format json         # machine-readable

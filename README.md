@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/tokenrotate.git"
 tokenrotate scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+tokenrotate helps you keep track of passwords, API keys, and other secrets that need to be changed on a regular schedule. You give it a list of your credentials (just their names and when they were last changed — never the actual values), and it tells you which ones are overdue, which ones are coming up soon, and which ones you have no rotation history for. It is designed for developers and teams who manage many services and need a simple, reliable way to stay on top of credential hygiene without a cloud account or subscription.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why tokenrotate?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -45,6 +51,42 @@ rotation made boring
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`tokenrotate` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/tokenrotate/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/tokenrotate/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/tokenrotate.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/tokenrotate.git"  # uv
+pip install "git+https://github.com/cognis-digital/tokenrotate.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/tokenrotate.git
+cd tokenrotate && pip install .
+```
+
+Then run:
+```sh
+tokenrotate --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash

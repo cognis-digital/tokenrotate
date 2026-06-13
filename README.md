@@ -20,6 +20,39 @@ pip install cognis-tokenrotate
 tokenrotate scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+1. **Install** (Python 3.9+):
+
+   ```bash
+   pip install tokenrotate
+   ```
+
+2. **Print an ordered rotation plan** from a secret inventory JSON:
+
+   ```bash
+   tokenrotate plan inventory.json
+   ```
+
+3. **Get a roll-up summary** of rotation status across providers:
+
+   ```bash
+   tokenrotate report inventory.json
+   ```
+
+4. **Read the output as JSON** for tooling (each subcommand accepts `--format`):
+
+   ```bash
+   tokenrotate plan inventory.json --format json | jq '.[]'
+   ```
+
+5. **Gate in CI.** `check` exits non-zero when any secret is overdue or has an unknown age:
+
+   ```bash
+   tokenrotate check inventory.json || echo "Secrets overdue for rotation"
+   ```
+
+
 ## Contents
 
 - [Why tokenrotate?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)

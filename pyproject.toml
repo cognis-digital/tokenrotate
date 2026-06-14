@@ -34,3 +34,6 @@ tokenrotate = "tokenrotate.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["tokenrotate"]
+
+[tool.hatch.metadata]
+allow-direct-references = true

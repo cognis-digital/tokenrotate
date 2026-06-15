@@ -195,7 +195,13 @@ def load_inventory(path: str) -> Inventory:
     if not isinstance(entries, list):
         raise ValueError("'secrets' must be an array")
 
-    secrets = [Secret.from_dict(e) for e in entries]
+    secrets = []
+    for idx, e in enumerate(entries):
+        if not isinstance(e, dict):
+            raise ValueError(
+                "secrets[%d] is not an object (got %s)" % (idx, type(e).__name__)
+            )
+        secrets.append(Secret.from_dict(e))
     return Inventory(secrets=secrets, provider_intervals=provider_intervals)
 
 

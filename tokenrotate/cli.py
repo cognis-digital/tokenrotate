@@ -178,8 +178,20 @@ def main(argv: Optional[List[str]] = None) -> int:
     except FileNotFoundError as exc:
         print("error: inventory file not found: %s" % exc.filename, file=sys.stderr)
         return 2
+    except IsADirectoryError as exc:
+        print("error: inventory path is a directory, not a file: %s" % exc.filename, file=sys.stderr)
+        return 2
+    except PermissionError as exc:
+        print("error: permission denied reading inventory: %s" % exc.filename, file=sys.stderr)
+        return 2
+    except UnicodeDecodeError as exc:
+        print("error: inventory file is not valid UTF-8: %s" % exc, file=sys.stderr)
+        return 2
     except (ValueError, json.JSONDecodeError) as exc:
         print("error: invalid inventory: %s" % exc, file=sys.stderr)
+        return 2
+    except OSError as exc:
+        print("error: could not read inventory: %s" % exc, file=sys.stderr)
         return 2
 
 

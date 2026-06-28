@@ -1,0 +1,16 @@
+$ tokenrotate-emit --help
+
+usage: tokenrotate [-h] [--version] {plan,report,check} ...
+
+Plan and track secret rotation across providers from an inventory.
+
+positional arguments:
+  {plan,report,check}
+    plan               print ordered rotation plan
+    report             print roll-up summary
+    check              exit non-zero if any secret is overdue/unknown (CI
+                       gate)
+
+options:
+  -h, --help           show this help message and exit
+  --version            show program's version number and exit
